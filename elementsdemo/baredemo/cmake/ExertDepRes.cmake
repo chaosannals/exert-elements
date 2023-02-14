@@ -1,7 +1,9 @@
-if (WIN32)
-    # Visual Studio �� sln �ļ� �� ֱ�Ӵ� cmake �ļ��� ����ʱ�в��졣
-    # sln ִ��·��������·��    cmake Ŀ¼�� ����·��/����
-    # ���Ƶ�������ԴҪ�ิ��һ�ݡ�
+﻿if (WIN32)
+    # 以下是我以前生成 VS 项目用的，现在 vs 可以直接打开操作 cmake 项目，已经不需要了。没有 sln 的问题。
+    # 
+    # Visual Studio 打开 sln 文件 和 直接打开 cmake 文件夹 调试时有差异。
+    # sln 执行路径是生成路径    cmake 目录是 生成路径/类型
+    # 复制的依赖资源要多复制一份。
     file(
         COPY ${ELEMENTS_RESOURCES} ${ELEMENTS_APP_RESOURCES}
         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CONFIGURATION_TYPES}/resources"
