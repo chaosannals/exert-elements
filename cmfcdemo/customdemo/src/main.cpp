@@ -134,13 +134,15 @@ int main(int argc, char* argv[]) {
 
 	// 因为固定布局会前向展开，采用克隆。所以这里多个容器 f 来给固定布局展开
 	// f 是 std::vector 实例，所以拷贝时候需要给他拷贝共享指针。。不能给直接 share(d)，会被解释为右值，导致进行克隆。。
+	// hold 实现了类似的方式，多套了一层 indirect 不直接。
 	deck_composite f;
 	f.push_back(sd);
 
 	_view.content(
 		floating( // 相对布局 类似前端：position: absolute, 通过 上下左右定位。
 			{ 100, 100, 400, 400 },
-			f
+			// f
+			hold(sd)
 		),
 		htile(
 			funny_slider,
