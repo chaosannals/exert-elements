@@ -40,3 +40,4 @@ set(ELEMENTS_BUILD_EXAMPLES OFF) # 这个必须 OFF
 add_subdirectory(${ELEMENTS_ROOT} elements)
 
 add_subdirectory(baredemo)
+add_subdirectory(customdemo)
